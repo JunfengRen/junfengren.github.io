@@ -31,15 +31,3 @@ Currently, I am developing LiteTokenOcc, a collaborative 3D occupancy prediction
 
 I am actively preparing for Ph.D. applications for Fall 2027. My long-term goal is to build efficient and reliable perception systems for real-world autonomous driving.
 
-
-
-
-{% if page.selected_papers %}
-  <h2><a href="{{ '/publications/' | relative_url }}" style="color: inherit;">Recent Work</a></h2>
-  {% include selected_papers.liquid %}
-{% endif %}
-
-{% if page.latest_posts.enabled %}
-  <h2><a href="{{ '/blog/' | relative_url }}" style="color: inherit;">Tech Blog</a></h2>
-  {% include latest_posts.liquid %}
-{% endif %}
