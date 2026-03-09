@@ -89,7 +89,6 @@ cv:
       - name: IELTS
         date: 2024
         issuer: British Council
-        score: 6.5
         icon: fa-solid fa-language
 
       - name: Software Copyright – IoT Data Monitoring and Analysis System
