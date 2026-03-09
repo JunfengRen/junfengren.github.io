@@ -25,10 +25,10 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am an aspiring researcher actively seeking **Ph.D. opportunities for Fall 2027** in Computer Vision. Currently, I am a postgraduate student at Southern University of Science and Technology.
+I am a postgraduate student at Southern University of Science and Technology (SUSTech), working in computer vision and autonomous driving perception.
 
-My primary research interests lie in **3D Computer Vision**, specifically focusing on **3D semantic occupancy prediction** and cooperative perception in autonomous driving scenarios. I am deeply interested in token-based methodologies to achieve efficient and accurate spatial understanding.
+My research focuses on 3D semantic occupancy prediction, collaborative perception, and efficient multi-agent communication. I am particularly interested in token-based representations and spatio-temporal modeling for large-scale scene understanding.
 
-Currently, I am leading the development of **LiteTokenOcc**, a novel computer vision framework designed for efficient cooperative 3D semantic occupancy prediction. This achievement is being submitted to NeurIPS 2026.
+Currently, I am developing LiteTokenOcc, a collaborative 3D occupancy prediction framework designed to improve communication efficiency and perception accuracy in multi-agent autonomous driving scenarios.
 
-Please feel free to reach out via email if you are looking for highly motivated Ph.D. students or are interested in collaboration!
+I am actively preparing for Ph.D. applications for Fall 2027. My long-term goal is to build efficient and reliable perception systems for real-world autonomous driving.
