@@ -2,14 +2,13 @@
 layout: about
 title: about
 permalink: /
-subtitle: Master Student at SusTech
 
 profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>Email: junfengren3253@gmail.com</p>
+    <p>junfengren3253@gmail.com</p>
     <p>Shenzhen, China</p>
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
