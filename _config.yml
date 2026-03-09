@@ -6,13 +6,14 @@ title: Junfeng Ren
 first_name: Junfeng
 middle_name: 
 last_name: Ren
+email: "junfengren3253@gmail.com"
+github_username: "JunfengRen"
+linkedin_username: ""
+scholar_userid: ""
+
 contact_note: >
-  You can even add a little note about which of these is the best way to reach you.
+  Read ten thousand books, travel ten thousand miles.
 description: "Ph.D. Applicant | Computer Vision | 3D Occupancy Prediction"
-footer_text: >
-  Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
-  Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-  Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
 keywords: jekyll, jekyll-theme, academic-website, portfolio-website # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
