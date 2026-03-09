@@ -4,22 +4,23 @@ title: About
 permalink: /
 
 profile:
-  align: right
-  image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
-  more_info: >
-    <p>M.S. Student, SUSTech</p>
-    <p>Computer Vision | Autonomous Driving<p>
-    <p>junfengren3253@gmail.com<p>
-    <p>Shenzhen, China</p>
+  align: right
+  image: prof_pic.jpg
+  image_circular: false # crops the image to make it circular
+  more_info: >
+    <p>M.S. Student, SUSTech</p>
+    <p>Computer Vision | Autonomous Driving</p>
+    <p>junfengren3253@gmail.com</p>
+    <p>Shenzhen, China</p>
 
-Recent Work: true # includes a list of papers marked as "selected={true}"
+news: true # 如果不需要动态，可以改成 false
+selected_papers: true # 必须用原名
 social: true # includes social icons at the bottom of the page
 
-Tech Blog:
-  enabled: true
-  scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-  limit: 3 # leave blank to include all the blog posts
+latest_posts: # 必须用原名
+  enabled: true
+  scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
+  limit: 3 # leave blank to include all the blog posts
 ---
 
 I am a postgraduate student at Southern University of Science and Technology (SUSTech), working in computer vision and autonomous driving perception.
@@ -29,3 +30,19 @@ My research focuses on 3D semantic occupancy prediction, collaborative perceptio
 Currently, I am developing LiteTokenOcc, a collaborative 3D occupancy prediction framework designed to improve communication efficiency and perception accuracy in multi-agent autonomous driving scenarios.
 
 I am actively preparing for Ph.D. applications for Fall 2027. My long-term goal is to build efficient and reliable perception systems for real-world autonomous driving.
+
+
+{% if page.news %}
+  <h2><a href="{{ '/news/' | relative_url }}" style="color: inherit;">Recent Updates</a></h2>
+  {% include news.html limit=true %}
+{% endif %}
+
+{% if page.selected_papers %}
+  <h2><a href="{{ '/publications/' | relative_url }}" style="color: inherit;">Recent Work</a></h2>
+  {% include selected_papers.html %}
+{% endif %}
+
+{% if page.latest_posts.enabled %}
+  <h2><a href="{{ '/blog/' | relative_url }}" style="color: inherit;">Tech Blog</a></h2>
+  {% include latest_posts.html %}
+{% endif %}
