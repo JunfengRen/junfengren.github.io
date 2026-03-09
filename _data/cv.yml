@@ -53,11 +53,16 @@ cv:
           - "Conducted experimental evaluation and technical documentation for research projects"
 
     Publications:
-      - title: "LiteTokenOcc: Collaborative Occupancy Prediction with Tokenized Spatio-Temporal Memory"
+      - title: "Learning to Merge Tokens for Communication-Efficient Collaborative Occupancy Prediction"
         authors:
           - "Junfeng Ren"
         publisher: "In preparation"
         releaseDate: 2026
+      - title: "Scheduling Optimization Design of IoT Embedded System Based on Improved RMS Algorithm"
+        authors:
+          - "Junfeng Ren"
+        publisher: "IEEE"
+        releaseDate: 2023
 
     Skills:
       - name: "Programming"
