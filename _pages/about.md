@@ -34,15 +34,15 @@ I am actively preparing for Ph.D. applications for Fall 2027. My long-term goal 
 
 {% if page.news %}
   <h2><a href="{{ '/news/' | relative_url }}" style="color: inherit;">Recent Updates</a></h2>
-  {% include news.html limit=true %}
+  {% include news.liquid limit=true %}
 {% endif %}
 
 {% if page.selected_papers %}
   <h2><a href="{{ '/publications/' | relative_url }}" style="color: inherit;">Recent Work</a></h2>
-  {% include selected_papers.html %}
+  {% include selected_papers.liquid %}
 {% endif %}
 
 {% if page.latest_posts.enabled %}
   <h2><a href="{{ '/blog/' | relative_url }}" style="color: inherit;">Tech Blog</a></h2>
-  {% include latest_posts.html %}
+  {% include latest_posts.liquid %}
 {% endif %}
