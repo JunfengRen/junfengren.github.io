@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "books-the-godfather",
+        },{id: "post-hello-world-embarking-on-3d-semantic-occupancy-prediction",
+        
+          title: "Hello World: Embarking on 3D Semantic Occupancy Prediction",
+        
+        description: "Setting up my academic digital garden and research notes.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/First/";
+          
+        },
+      },{id: "books-the-godfather",
           title: 'The Godfather',
           description: "",
           section: "Books",handler: () => {
