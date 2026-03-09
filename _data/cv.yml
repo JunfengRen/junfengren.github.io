@@ -1,147 +1,142 @@
 cv:
-  name: Junfeng Ren
-  label: M.S. Student in Computer Science
-  email: junfengren3253@gmail.com
-  location: Shenzhen, China
+  name: "Junfeng Ren"
+  label: "M.S. Student in Computer Science"
+  email: "junfengren3253@gmail.com"
+  location: "Shenzhen, China"
   image: ""
   summary: >
     M.S. student at Southern University of Science and Technology (SUSTech),
-    working on computer vision for autonomous driving. 
+    working on computer vision for autonomous driving.
     My research focuses on collaborative perception, 3D semantic occupancy prediction,
     and efficient multi-agent communication.
 
   social_networks:
-    - network: GitHub
-      username: junfengren
-    - network: Google Scholar
+    - network: "GitHub"
+      username: "junfengren"
+    - network: "Google Scholar"
       username: ""
-    - network: LinkedIn
+    - network: "LinkedIn"
       username: ""
-    
+
   sections:
     Education:
-      - institution: Southern University of Science and Technology
-        location: Shenzhen, China
-        area: Electronic Information
-        studyType: M.S.
+      - institution: "Southern University of Science and Technology"
+        location: "Shenzhen, China"
+        area: "Electronic Information"
+        studyType: "M.S."
         start_date: 2024
         end_date: "Present"
         score: "3.52"
         highlights:
-          - Research focus: Computer Vision and Autonomous Driving Perception
-          - Topics: Collaborative Occupancy Prediction, Multi-Agent Perception
+          - "Research focus: Computer Vision and Autonomous Driving Perception"
+          - "Topics: Collaborative Occupancy Prediction, Multi-Agent Perception"
 
-      - institution: Shandong University of Science and Technology
-        location: Qingdao, China
-        area: Internet of Things Engineering
-        studyType: B.S.
+      - institution: "Shandong University of Science and Technology"
+        location: "Qingdao, China"
+        area: "Internet of Things Engineering"
+        studyType: "B.S."
         start_date: 2019
         end_date: 2023
         score: "3.56"
         highlights:
-          - Focus on embedded systems, robotics, and computer vision applications
-          
-    Experience:
-      - company: IoT Engineering Laboratory, Shandong University of Science and Technology
-        position: Research Assistant
-        location: Qingdao, China
-        start_date: 2023-07
-        end_date: 2024-01
-        highlights:
-          - Assisted in research on IoT-based monitoring and data analysis systems
-          - Developed prototype systems for real-time sensor data collection and visualization
-          - Conducted experimental evaluation and technical documentation for research projects
+          - "Focus on embedded systems, robotics, and computer vision applications"
 
+    Experience:
+      - company: "IoT Engineering Laboratory, Shandong University of Science and Technology"
+        position: "Research Assistant"
+        location: "Qingdao, China"
+        start_date: "2023-07"
+        end_date: "2024-01"
+        highlights:
+          - "Assisted in research on IoT-based monitoring and data analysis systems"
+          - "Developed prototype systems for real-time sensor data collection and visualization"
+          - "Conducted experimental evaluation and technical documentation for research projects"
 
     Publications:
-      - title: LiteTokenOcc: Collaborative Occupancy Prediction with Tokenized Spatio-Temporal Memory
+      - title: "LiteTokenOcc: Collaborative Occupancy Prediction with Tokenized Spatio-Temporal Memory"
         authors:
-          - Junfeng Ren
-        publisher: In preparation
+          - "Junfeng Ren"
+        publisher: "In preparation"
         releaseDate: 2026
-    
+
     Skills:
-      - name: Programming
-        level: Advanced
+      - name: "Programming"
+        level: "Advanced"
         keywords: "Python, PyTorch, CUDA, Linux"
 
-      - name: Machine Learning
-        level: Advanced
+      - name: "Machine Learning"
+        level: "Advanced"
         keywords: "Deep Learning, Transformers, Reinforcement Learning"
 
-      - name: Computer Vision
-        level: Advanced
+      - name: "Computer Vision"
+        level: "Advanced"
         keywords: "3D Perception, Occupancy Prediction, Autonomous Driving"
-    
+
     Languages:
-      - name: Chinese
+      - name: "Chinese"
         summary: "Native speaker"
 
-      - name: English
+      - name: "English"
         summary: "Fluent"
 
     Interests:
-      - name: Research Interests
-        icon: fa-solid fa-magnifying-glass
+      - name: "Research Interests"
+        icon: "fa-solid fa-magnifying-glass"
         keywords: "Computer Vision, Autonomous Driving Perception, 3D Scene Understanding, Semantic Occupancy Prediction, Collaborative Perception, Multi-Agent Systems"
-    
-    Certificates:
-      - name: IELTS
-        date: 2024
-        issuer: British Council
-        icon: fa-solid fa-language
 
-      - name: Software Copyright – IoT Data Monitoring and Analysis System
+    Certificates:
+      - name: "IELTS"
+        date: 2024
+        issuer: "British Council"
+        score: "6.5"
+        icon: "fa-solid fa-language"
+
+      - name: "Software Copyright - IoT Data Monitoring and Analysis System"
         date: 2023
-        issuer: National Copyright Administration of China
-        icon: fa-solid fa-certificate
+        issuer: "National Copyright Administration of China"
+        icon: "fa-solid fa-certificate"
 
     Projects:
-    - name: Collaborative 3D Semantic Occupancy Prediction
-      summary: >
-        Research project on collaborative perception for autonomous driving,
-        focusing on efficient multi-agent communication and 3D scene understanding.
+      - name: "Collaborative 3D Semantic Occupancy Prediction"
+        summary: >
+          Research project on collaborative perception for autonomous driving,
+          focusing on efficient multi-agent communication and 3D scene understanding.
+        highlights:
+          - "Designed a sparse communication framework for collaborative 3D semantic occupancy prediction"
+          - "Performed multi-agent perception alignment and feature fusion in a unified 3D world coordinate system"
+          - "Utilized Transformer-based spatio-temporal modeling for occupancy reasoning"
+          - "Achieved competitive prediction accuracy while significantly reducing communication and memory overhead"
 
-      highlights:
-        - Designed a sparse communication framework for collaborative 3D semantic occupancy prediction
-        - Performed multi-agent perception alignment and feature fusion in a unified 3D world coordinate system
-        - Utilized Transformer-based spatio-temporal modeling for occupancy reasoning
-        - Achieved competitive prediction accuracy while significantly reducing communication and memory overhead
+      - name: "Federated Medical Image Segmentation with Domain Adaptation"
+        summary: >
+          Research on federated learning for medical image segmentation under privacy constraints
+          and cross-institution domain shifts.
+        highlights:
+          - "Developed a federated learning framework for multi-center medical imaging datasets"
+          - "Introduced domain style transfer and feature alignment strategies to mitigate domain shift"
+          - "Enabled collaborative training across multiple clients without sharing raw data"
+          - "Improved segmentation generalization across heterogeneous medical datasets"
 
-    - name: Federated Medical Image Segmentation with Domain Adaptation
-      summary: >
-        Research on federated learning for medical image segmentation under privacy constraints
-        and cross-institution domain shifts.
+      - name: "Atrial Fibrillation Detection from ECG Signals"
+        summary: >
+          Deep learning based classification system for detecting atrial fibrillation (AF) from ECG signals.
+        highlights:
+          - "Built deep neural network models to classify AF and non-AF signals"
+          - "Performed ECG preprocessing and temporal feature modeling"
+          - "Evaluated different neural architectures on standard ECG datasets"
 
-      highlights:
-        - Developed a federated learning framework for multi-center medical imaging datasets
-        - Introduced domain style transfer and feature alignment strategies to mitigate domain shift
-        - Enabled collaborative training across multiple clients without sharing raw data
-        - Improved segmentation generalization across heterogeneous medical datasets
+      - name: "IoT Data Monitoring and Analysis System"
+        summary: >
+          Designed an IoT-based data monitoring and analytics system with real-time visualization and analysis.
+        highlights:
+          - "Implemented data acquisition and analysis pipeline for IoT sensor networks"
+          - "Developed visualization tools for real-time monitoring"
+          - "Received software copyright as first author"
 
-    - name: Atrial Fibrillation Detection from ECG Signals
-      summary: >
-        Deep learning based classification system for detecting atrial fibrillation (AF) from ECG signals.
-
-      highlights:
-        - Built deep neural network models to classify AF and non-AF signals
-        - Performed ECG preprocessing and temporal feature modeling
-        - Evaluated different neural architectures on standard ECG datasets
-
-    - name: IoT Data Monitoring and Analysis System
-      summary: >
-        Designed an IoT-based data monitoring and analytics system with real-time visualization and analysis.
-
-      highlights:
-        - Implemented data acquisition and analysis pipeline for IoT sensor networks
-        - Developed visualization tools for real-time monitoring
-        - Received software copyright as first author
-
-    - name: Embedded Face Recognition Access Control System
-      summary: >
-        Embedded access control system based on deep learning face recognition.
-
-      highlights:
-        - Implemented FaceNet-based face recognition on embedded hardware platforms
-        - Integrated STM32, ESP8266, and MAIX2DOCK modules
-        - Designed MQTT communication and Android-based remote control interface
+      - name: "Embedded Face Recognition Access Control System"
+        summary: >
+          Embedded access control system based on deep learning face recognition.
+        highlights:
+          - "Implemented FaceNet-based face recognition on embedded hardware platforms"
+          - "Integrated STM32, ESP8266, and MAIX2DOCK modules"
+          - "Designed MQTT communication and Android-based remote control interface"
