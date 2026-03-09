@@ -14,9 +14,9 @@ cv:
     - network: GitHub
       username: junfengren
     - network: Google Scholar
-      username:""
+      username: ""
     - network: LinkedIn
-      username:""
+      username: ""
     
   sections:
     Education:
@@ -25,8 +25,8 @@ cv:
         area: Electronic Information
         studyType: M.S.
         start_date: 2024
-        end_date: Present
-        GPA: "3.52"
+        end_date: "Present"
+        score: "3.52"
         highlights:
           - Research focus: Computer Vision and Autonomous Driving Perception
           - Topics: Collaborative Occupancy Prediction, Multi-Agent Perception
@@ -37,41 +37,41 @@ cv:
         studyType: B.S.
         start_date: 2019
         end_date: 2023
-        GPA: "3.56"
+        score: "3.56"
         highlights:
           - Focus on embedded systems, robotics, and computer vision applications
           
     Experience:
-    - company: IoT Engineering Laboratory, Shandong University of Science and Technology
-      position: Research Assistant
-      location: Qingdao, China
-      start_date: 2023-07
-      end_date: 2024-01
-      highlights:
-        - Assisted in research on IoT-based monitoring and data analysis systems
-        - Developed prototype systems for real-time sensor data collection and visualization
-        - Conducted experimental evaluation and technical documentation for research projects
+      - company: IoT Engineering Laboratory, Shandong University of Science and Technology
+        position: Research Assistant
+        location: Qingdao, China
+        start_date: 2023-07
+        end_date: 2024-01
+        highlights:
+          - Assisted in research on IoT-based monitoring and data analysis systems
+          - Developed prototype systems for real-time sensor data collection and visualization
+          - Conducted experimental evaluation and technical documentation for research projects
 
 
     Publications:
-  - title: LiteTokenOcc: Collaborative Occupancy Prediction with Tokenized Spatio-Temporal Memory
-    authors:
-      - Junfeng Ren
-    publisher: In preparation
-    releaseDate: 2026
+      - title: LiteTokenOcc: Collaborative Occupancy Prediction with Tokenized Spatio-Temporal Memory
+        authors:
+          - Junfeng Ren
+        publisher: In preparation
+        releaseDate: 2026
     
     Skills:
-  - name: Programming
-    level: Advanced
-    keywords: "Python, PyTorch, CUDA, Linux"
+      - name: Programming
+        level: Advanced
+        keywords: "Python, PyTorch, CUDA, Linux"
 
-  - name: Machine Learning
-    level: Advanced
-    keywords: "Deep Learning, Transformers, Reinforcement Learning"
+      - name: Machine Learning
+        level: Advanced
+        keywords: "Deep Learning, Transformers, Reinforcement Learning"
 
-  - name: Computer Vision
-    level: Advanced
-    keywords: "3D Perception, Occupancy Prediction, Autonomous Driving"
+      - name: Computer Vision
+        level: Advanced
+        keywords: "3D Perception, Occupancy Prediction, Autonomous Driving"
     
     Languages:
       - name: Chinese
@@ -81,15 +81,15 @@ cv:
         summary: "Fluent"
 
     Interests:
-    - name: Research Interests
-      icon: fa-solid fa-magnifying-glass
-      keywords: "Computer Vision, Autonomous Driving Perception, 3D Scene Understanding, Semantic Occupancy Prediction, Collaborative Perception, Multi-Agent Systems"
+      - name: Research Interests
+        icon: fa-solid fa-magnifying-glass
+        keywords: "Computer Vision, Autonomous Driving Perception, 3D Scene Understanding, Semantic Occupancy Prediction, Collaborative Perception, Multi-Agent Systems"
     
     Certificates:
       - name: IELTS
         date: 2024
         issuer: British Council
-        Score: 6.5
+        score: 6.5
         icon: fa-solid fa-language
 
       - name: Software Copyright – IoT Data Monitoring and Analysis System
