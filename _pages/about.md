@@ -14,11 +14,11 @@ profile:
     <p>Shenzhen, China</p>
 
 news: true # 如果不需要动态，可以改成 false
-selected_papers: false # 必须用原名
+selected_papers: true # 必须用原名
 social: true # includes social icons at the bottom of the page
 
 latest_posts: # 必须用原名
-  enabled: false
+  enabled: true
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
   limit: 3 # leave blank to include all the blog posts
 ---
