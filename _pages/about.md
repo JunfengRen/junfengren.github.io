@@ -27,8 +27,10 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](https://www.reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I am an aspiring researcher actively seeking **Ph.D. opportunities for Fall 2027** in Computer Vision. Currently, I am a postgraduate student at Southern University of Science and Technology.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+My primary research interests lie in **3D Computer Vision**, specifically focusing on **3D semantic occupancy prediction** and cooperative perception in autonomous driving scenarios. I am deeply interested in token-based methodologies to achieve efficient and accurate spatial understanding.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+Currently, I am leading the development of **LiteTokenOcc**, a novel computer vision framework designed for efficient cooperative 3D semantic occupancy prediction. This achievement is being submitted to NeurIPS 2026.
+
+Please feel free to reach out via email if you are looking for highly motivated Ph.D. students or are interested in collaboration!
