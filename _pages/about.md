@@ -14,11 +14,11 @@ profile:
     <p>Shenzhen, China</p>
 
 news: true # 如果不需要动态，可以改成 false
-selected_papers: true # 必须用原名
+selected_papers: false # 必须用原名
 social: true # includes social icons at the bottom of the page
 
 latest_posts: # 必须用原名
-  enabled: true
+  enabled: false
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
   limit: 3 # leave blank to include all the blog posts
 ---
@@ -32,10 +32,7 @@ Currently, I am developing LiteTokenOcc, a collaborative 3D occupancy prediction
 I am actively preparing for Ph.D. applications for Fall 2027. My long-term goal is to build efficient and reliable perception systems for real-world autonomous driving.
 
 
-{% if page.news %}
-  <h2><a href="{{ '/news/' | relative_url }}" style="color: inherit;">Recent Updates</a></h2>
-  {% include news.liquid limit=true %}
-{% endif %}
+
 
 {% if page.selected_papers %}
   <h2><a href="{{ '/publications/' | relative_url }}" style="color: inherit;">Recent Work</a></h2>
