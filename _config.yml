@@ -88,7 +88,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # -----------------------------------------------------------------------------
 
 blog_name: Research Notes # blog_name will be displayed in your blog page
-blog_description: Thoughts, notes, and experiments on computer vision, autonomous driving perception, and research in progress.
+blog_description: Thoughts, notes, and experiments.
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 
