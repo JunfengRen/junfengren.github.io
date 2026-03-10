@@ -37,11 +37,11 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-hello-world-embarking-on-3d-semantic-occupancy-prediction",
+        },{id: "post-building-my-phd-interview-knowledge-base-for-computer-vision",
         
-          title: "Hello World: Embarking on 3D Semantic Occupancy Prediction",
+          title: "Building My PhD Interview Knowledge Base for Computer Vision",
         
-        description: "Setting up my academic digital garden and research notes.",
+        description: "A structured roadmap of the theoretical foundations required for PhD interviews in computer vision and autonomous driving.",
         section: "Posts",
         handler: () => {
           
@@ -64,11 +64,26 @@ ninja.data = [{
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "News",},{id: "projects-project-1",
-          title: 'project 1',
-          description: "with background image",
+          section: "News",},{id: "projects-jetson-based-autonomous-driving-system",
+          title: 'Jetson-Based Autonomous Driving System',
+          description: "Embedded autonomous driving platform with perception and planning on NVIDIA Jetson",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/1_project/";
+              window.location.href = "/projects/AD/";
+            },},{id: "projects-embedded-face-recognition-access-control-system",
+          title: 'Embedded Face Recognition Access Control System',
+          description: "Lightweight edge AI system for real-time face recognition on STM32 microcontrollers",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/EdgeCompute/";
+            },},{id: "projects-federated-learning-for-medical-image-segmentation-with-domain-generalization",
+          title: 'Federated Learning for Medical Image Segmentation with Domain Generalization',
+          description: "Federated medical image segmentation with domain generalization and style transfer",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/FedDG/";
+            },},{id: "projects-nao-robot-soccer-system",
+          title: 'NAO Robot Soccer System',
+          description: "Embodied AI project using NAO humanoid robots for autonomous soccer playing",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/NAO/";
             },},{id: "teachings-data-science-fundamentals",
           title: 'Data Science Fundamentals',
           description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
