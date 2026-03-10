@@ -79,6 +79,11 @@ ninja.data = [{
           description: "Federated medical image segmentation with domain generalization and style transfer",
           section: "Projects",handler: () => {
               window.location.href = "/projects/FedDG/";
+            },},{id: "projects-learning-to-merge-tokens-for-communication-efficient-collaborative-occupancy-prediction",
+          title: 'Learning to Merge Tokens for Communication-Efficient Collaborative Occupancy Prediction',
+          description: "Federated medical image segmentation with domain generalization and style transfer",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/LiteTokenOcc/";
             },},{id: "projects-nao-robot-soccer-system",
           title: 'NAO Robot Soccer System',
           description: "Embodied AI project using NAO humanoid robots for autonomous soccer playing",
