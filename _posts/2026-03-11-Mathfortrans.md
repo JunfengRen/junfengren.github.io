@@ -2,8 +2,8 @@
 layout: post
 title: "Mathematical Foundations for Transformers"
 description: "Detailed study notes on the mathematics behind Transformer models, including attention, softmax, positional encoding, optimization, and efficient token computation."
-tags: [transformers, math, deep-learning, research-notes]
-categories: research-notes
+tags: [math, transformers]
+categories: notes
 ---
 
 As I continue studying modern computer vision and large-scale perception models, I have become increasingly convinced that understanding Transformers requires more than memorizing architecture diagrams.  
