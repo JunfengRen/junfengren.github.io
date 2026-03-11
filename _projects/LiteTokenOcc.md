@@ -1,8 +1,8 @@
 ---
 layout: page
 title: "Learning to Merge Tokens for Communication-Efficient Collaborative Occupancy Prediction"
-description: "Federated medical image segmentation with domain generalization and style transfer"
-img: assets/img/7.jpg
+description: ""
+img: ""
 importance: 1
 category: research
 related_publications: false
