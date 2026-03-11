@@ -37,7 +37,29 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-building-my-phd-interview-knowledge-base-for-computer-vision",
+        },{id: "post-mathematical-foundations-for-transformers",
+        
+          title: "Mathematical Foundations for Transformers",
+        
+        description: "Detailed study notes on the mathematics behind Transformer models, including attention, softmax, positional encoding, optimization, and efficient token computation.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/Mathfortrans/";
+          
+        },
+      },{id: "post-mathematical-foundations-for-machine-learning-and-computer-vision",
+        
+          title: "Mathematical Foundations for Machine Learning and Computer Vision",
+        
+        description: "Detailed study notes on linear algebra, probability, and optimization for machine learning and computer vision.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/Math/";
+          
+        },
+      },{id: "post-building-my-phd-interview-knowledge-base-for-computer-vision",
         
           title: "Building My PhD Interview Knowledge Base for Computer Vision",
         
