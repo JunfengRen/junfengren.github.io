@@ -103,7 +103,7 @@ ninja.data = [{
               window.location.href = "/projects/FedDG/";
             },},{id: "projects-learning-to-merge-tokens-for-communication-efficient-collaborative-occupancy-prediction",
           title: 'Learning to Merge Tokens for Communication-Efficient Collaborative Occupancy Prediction',
-          description: "Federated medical image segmentation with domain generalization and style transfer",
+          description: "",
           section: "Projects",handler: () => {
               window.location.href = "/projects/LiteTokenOcc/";
             },},{id: "projects-nao-robot-soccer-system",
@@ -111,6 +111,11 @@ ninja.data = [{
           description: "Embodied AI project using NAO humanoid robots for autonomous soccer playing",
           section: "Projects",handler: () => {
               window.location.href = "/projects/NAO/";
+            },},{id: "projects-rate-distortion-in-efficient-multi-agent-perception-a-unified-framework-for-communication-and-memory-optimization",
+          title: 'Rate-Distortion in Efficient Multi-Agent Perception: A Unified Framework for Communication and Memory Optimization...',
+          description: "",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/RD/";
             },},{id: "teachings-data-science-fundamentals",
           title: 'Data Science Fundamentals',
           description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
