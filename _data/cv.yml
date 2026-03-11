@@ -58,6 +58,11 @@ cv:
           - "Junfeng Ren"
         publisher: "In preparation"
         releaseDate: 2026
+      - title: "Rate-Distortion in Efficient Multi-Agent Perception: A Unified Framework for Communication and Memory Optimization"
+        authors:
+          - "Junfeng Ren"
+        publisher: "In preparation"
+        releaseDate: 2026
       - title: "Scheduling Optimization Design of IoT Embedded System Based on Improved RMS Algorithm"
         authors:
           - "Junfeng Ren"
@@ -102,46 +107,64 @@ cv:
         icon: "fa-solid fa-certificate"
 
     Projects:
-      - name: "Collaborative 3D Semantic Occupancy Prediction"
+      - name: "Learn to Merge Tokens for Communication-Efficient Collaborative Occupancy Prediction"
         summary: >
-          Research project on collaborative perception for autonomous driving,
-          focusing on efficient multi-agent communication and 3D scene understanding.
+          Ongoing research on communication-efficient collaborative 3D semantic occupancy prediction
+          for autonomous driving, focusing on tokenized scene representation, spatio-temporal memory,
+          and task-aware communication under bandwidth constraints.
         highlights:
-          - "Designed a sparse communication framework for collaborative 3D semantic occupancy prediction"
-          - "Performed multi-agent perception alignment and feature fusion in a unified 3D world coordinate system"
-          - "Utilized Transformer-based spatio-temporal modeling for occupancy reasoning"
-          - "Achieved competitive prediction accuracy while significantly reducing communication and memory overhead"
+          - "Designed a collaborative occupancy prediction framework with tokenized spatio-temporal memory for multi-agent scene understanding"
+          - "Developed communication-aware token merging strategies to reduce transmission redundancy while preserving task-critical information"
+          - "Implemented request-conditioned communication, multi-agent feature alignment, and Transformer-based temporal modeling in a unified 3D world coordinate system"
+          - "Built large-scale training and evaluation pipelines on collaborative perception datasets, analyzing communication cost, memory efficiency, and occupancy prediction accuracy"
 
-      - name: "Federated Medical Image Segmentation with Domain Adaptation"
+      - name: "Rate-Distortion in Efficient Multi-Agent Perception: A Unified Framework for Communication and Memory Optimization"
         summary: >
-          Research on federated learning for medical image segmentation under privacy constraints
-          and cross-institution domain shifts.
+          Ongoing research on a unified rate-distortion perspective for efficient multi-agent perception,
+          jointly optimizing communication bandwidth and spatio-temporal memory usage in collaborative
+          autonomous driving systems.
         highlights:
-          - "Developed a federated learning framework for multi-center medical imaging datasets"
-          - "Introduced domain style transfer and feature alignment strategies to mitigate domain shift"
-          - "Enabled collaborative training across multiple clients without sharing raw data"
-          - "Improved segmentation generalization across heterogeneous medical datasets"
+          - "Formulated multi-agent perception as a joint communication-memory optimization problem under rate-distortion constraints"
+          - "Investigated unified token selection, token compression, and memory update strategies for balancing perceptual utility against resource cost"
+          - "Developed theoretical and algorithmic designs for communication-efficient and memory-aware perception pipelines in collaborative driving scenarios"
+          - "Planned empirical evaluation on collaborative occupancy prediction benchmarks with analysis of accuracy–bandwidth–memory trade-offs"
 
-      - name: "Atrial Fibrillation Detection from ECG Signals"
+      - name: "Federated Learning for Medical Image Segmentation with Domain Generalization"
         summary: >
-          Deep learning based classification system for detecting atrial fibrillation (AF) from ECG signals.
+          Research project on privacy-preserving medical image segmentation under cross-institution
+          domain shift, combining federated learning, domain generalization, and cross-domain feature adaptation.
         highlights:
-          - "Built deep neural network models to classify AF and non-AF signals"
-          - "Performed ECG preprocessing and temporal feature modeling"
-          - "Evaluated different neural architectures on standard ECG datasets"
+          - "Developed a federated learning framework for multi-center medical image segmentation without sharing raw patient data"
+          - "Introduced domain style transfer and feature alignment strategies to improve model robustness across heterogeneous medical datasets"
+          - "Implemented collaborative optimization across distributed clients and evaluated cross-domain generalization performance"
+          - "Studied the interaction between privacy-preserving training and domain shift mitigation for robust medical image analysis"
 
-      - name: "IoT Data Monitoring and Analysis System"
+      - name: "Jetson-Based Autonomous Driving System"
         summary: >
-          Designed an IoT-based data monitoring and analytics system with real-time visualization and analysis.
+          Embedded autonomous driving project built on NVIDIA Jetson, integrating visual perception,
+          traffic light recognition, obstacle detection, path planning, and behavior control in real time.
         highlights:
-          - "Implemented data acquisition and analysis pipeline for IoT sensor networks"
-          - "Developed visualization tools for real-time monitoring"
-          - "Received software copyright as first author"
+          - "Trained and deployed lightweight object detection models (YOLO-based) for traffic light recognition and obstacle perception on Jetson hardware"
+          - "Implemented lane following, rule-based path planning, and crosswalk-aware speed control for autonomous navigation"
+          - "Optimized perception and control modules for real-time inference on embedded GPU platforms"
+          - "Integrated perception, planning, and control into a complete autonomous driving pipeline for structured road environments"
+
+      - name: "NAO Robot Soccer System"
+        summary: >
+          Embodied AI project based on the NAO humanoid robot platform, integrating computer vision,
+          motion control, and behavior planning for autonomous robotic soccer.
+        highlights:
+          - "Developed real-time visual perception modules for soccer ball detection, localization, and tracking using onboard camera inputs"
+          - "Implemented robot motion control for walking, turning, target alignment, and kicking using NAO control APIs"
+          - "Designed behavior logic for autonomous soccer play, including target search, approach, positioning, and kick execution"
+          - "Built an embodied perception-action pipeline combining sensing, decision-making, and control in a robotic system"
 
       - name: "Embedded Face Recognition Access Control System"
         summary: >
-          Embedded access control system based on deep learning face recognition.
+          Edge AI access control system based on STM32 microcontrollers, combining lightweight face recognition,
+          IoT communication, and Android-based remote control.
         highlights:
-          - "Implemented FaceNet-based face recognition on embedded hardware platforms"
-          - "Integrated STM32, ESP8266, and MAIX2DOCK modules"
-          - "Designed MQTT communication and Android-based remote control interface"
+          - "Designed and deployed a lightweight face recognition pipeline on STM32 embedded hardware using a compressed CNN-based model for resource-constrained inference"
+          - "Applied model lightweighting techniques such as pruning, quantization, and embedded deployment optimization for real-time on-device recognition"
+          - "Integrated ESP8266 and Baidu Cloud IoT platform for remote communication, device monitoring, and access management"
+          - "Developed an Android application for remote door control, user interaction, and cloud-connected system management"
