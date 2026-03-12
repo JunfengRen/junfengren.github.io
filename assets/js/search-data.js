@@ -88,7 +88,7 @@ ninja.data = [{
           description: "",
           section: "News",},{id: "projects-jetson-based-autonomous-driving-system",
           title: 'Jetson-Based Autonomous Driving System',
-          description: "Embedded autonomous driving platform with perception and planning on NVIDIA Jetson",
+          description: "Embedded autonomous driving platform integrating perception, planning, and control on NVIDIA Jetson",
           section: "Projects",handler: () => {
               window.location.href = "/projects/AD/";
             },},{id: "projects-embedded-face-recognition-access-control-system",
@@ -106,9 +106,9 @@ ninja.data = [{
           description: "",
           section: "Projects",handler: () => {
               window.location.href = "/projects/LiteTokenOcc/";
-            },},{id: "projects-nao-robot-soccer-system",
-          title: 'NAO Robot Soccer System',
-          description: "Embodied AI project using NAO humanoid robots for autonomous soccer playing",
+            },},{id: "projects-nao-robot-autonomous-ball-search-and-kick-system",
+          title: 'NAO Robot Autonomous Ball Search and Kick System',
+          description: "Embodied intelligence project implementing autonomous ball search and kicking on NAO humanoid robots for robotic soccer competitions",
           section: "Projects",handler: () => {
               window.location.href = "/projects/NAO/";
             },},{id: "projects-rate-distortion-in-efficient-multi-agent-perception-a-unified-framework-for-communication-and-memory-optimization",
