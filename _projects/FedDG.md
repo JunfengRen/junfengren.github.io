@@ -26,7 +26,7 @@ Each participating hospital (client) trains a local segmentation model using its
 
 The server performs global model aggregation and sends the updated parameters back to all clients.
 
-<img src="/assets/img/2.jpg" alt="FedDG Framework Pipeline" style="width:100%; border-radius:8px; margin-top:10px;">
+<!--#<img src="/assets/img/2.jpg" alt="FedDG Framework Pipeline" style="width:100%; border-radius:8px; margin-top:10px;">-->
 
 This distributed training paradigm allows institutions to collaboratively train a shared model while maintaining strict **data privacy and regulatory compliance**.
 
@@ -121,7 +121,7 @@ The results demonstrate that:
 
 Example experimental results are shown below.
 
-<img src="/assets/img/3.jpg" alt="FedDG Experimental Results" style="width:100%; border-radius:8px; margin-top:10px;">
+<!--<img src="/assets/img/3.jpg" alt="FedDG Experimental Results" style="width:100%; border-radius:8px; margin-top:10px;">-->
 
 ---
 
