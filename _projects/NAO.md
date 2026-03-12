@@ -1,7 +1,7 @@
 ---
 layout: page
-title: NAO Robot Soccer System
-description: Embodied AI project using NAO humanoid robots for autonomous soccer playing
+title: NAO Robot Autonomous Ball Search and Kick System
+description: Embodied intelligence project implementing autonomous ball search and kicking on NAO humanoid robots for robotic soccer competitions
 img: assets/img/1.jpg
 importance: 1
 category: engineering
@@ -10,64 +10,196 @@ related_publications: false
 
 ## Overview
 
-This project was completed in **2022** during my undergraduate studies.  
-The goal was to design and implement an **embodied intelligence system** using the **NAO humanoid robot platform** to participate in a robotic soccer competition.
+This project was completed in **2022** during my undergraduate studies as part of a robotics team participating in a **NAO robot soccer competition**. My role in the team was to implement the **autonomous perception–action pipeline that allows the robot to independently search for the ball, approach it, and execute a kick**.
 
-The system integrates **computer vision, motion control, and decision-making algorithms** to allow the robot to autonomously detect the ball, localize itself on the field, and execute kicking actions.
+The system is an example of an **Embodied AI system**, where perception, decision-making, and motor control must operate together in a closed loop. The robot continuously observes the environment through its onboard camera, processes visual information to detect the ball, decides how to move, and controls its joints to walk and kick.
 
----
-
-## System Architecture
-
-The system consists of three main modules:
-
-**1. Vision Perception**
-
-The robot uses its onboard camera to detect the soccer ball and field markers.  
-Computer vision algorithms were implemented to:
-
-- Detect the ball in real time
-- Estimate its relative position
-- Track the ball during movement
-
-**2. Motion Control**
-
-Based on the detected ball position, the robot performs:
-
-- walking and turning motions  
-- alignment with the ball  
-- kicking actions toward the goal  
-
-These behaviors were implemented using NAO's motion control APIs.
-
-**3. Game Strategy**
-
-A simple decision-making logic was designed to control the robot's behavior during the match, including:
-
-- searching for the ball when it is lost
-- approaching the ball
-- positioning before kicking
-- executing the kick toward the goal
+The core challenge is integrating **real-time computer vision, robot locomotion control, and behavior planning** under hardware constraints.
 
 ---
 
-## Technical Components
+## System Pipeline
 
-The project combines multiple areas of robotics and AI:
+The implemented system follows a classical robotics pipeline:
 
-- **Computer Vision** for object detection and localization  
-- **Robot Motion Control** using NAO's locomotion system  
-- **Behavior Programming** for decision-making during gameplay  
-- **Embodied AI** integration of perception and action  
+Perception → State Estimation → Behavior Strategy → Motion Control → Execution
+
+The robot repeatedly performs the following loop:
+
+1. Capture image from the NAO camera
+2. Detect and localize the soccer ball
+3. Estimate the ball position relative to the robot
+4. Decide the next behavior state
+5. Execute walking or kicking motion
+
+This closed-loop architecture enables the robot to autonomously interact with the environment.
+
+---
+
+## Computer Vision Module
+
+The perception module runs on the NAO onboard processor and processes images from the robot's RGB camera.
+
+### Ball Detection
+
+A lightweight vision pipeline was designed to detect the soccer ball in real time:
+
+1. **Color Space Conversion**  
+   Images are converted from RGB to **HSV color space**, which is more robust to lighting variation.
+
+2. **Color Segmentation**  
+   Thresholding is applied to extract candidate regions corresponding to the orange soccer ball.
+
+3. **Morphological Filtering**  
+   Morphological operations (erosion and dilation) are applied to remove noise and smooth the detected regions.
+
+4. **Contour Detection**  
+   Contours are extracted using OpenCV, and candidate regions are filtered based on:
+   - contour area
+   - circularity
+   - aspect ratio
+
+5. **Ball Position Estimation**  
+   The center of the detected contour is used to estimate the ball location in the image plane.
+
+### Distance Estimation
+
+The distance to the ball is estimated using a **pinhole camera model**:
+
+$$
+Z = \frac{fH}{h}
+$$
+
+where
+
+- $f$ is the camera focal length
+- $H$ is the real ball diameter
+- $h$ is the detected ball height in pixels
+
+This provides an approximate distance estimate that is sufficient for navigation and kicking.
+
+---
+
+## Behavior Strategy
+
+A **finite state machine (FSM)** was implemented to control the robot behavior. The main states include:
+
+**Search State**
+
+If the ball is not detected, the robot performs an active search behavior:
+
+- rotating the head horizontally to scan the field
+- rotating the body in place to expand the search area
+
+**Approach State**
+
+Once the ball is detected, the robot moves toward it while maintaining visual tracking.
+
+The robot adjusts its heading angle based on the horizontal position of the ball in the image.
+
+**Alignment State**
+
+Before kicking, the robot performs fine alignment so that the ball is located in front of the kicking foot.
+
+**Kick State**
+
+When the ball is within a predefined distance threshold, the robot triggers the kicking motion.
+
+State transitions are determined based on:
+
+- ball detection confidence
+- estimated distance
+- relative angle to the ball
+
+---
+
+## Motion Control
+
+The robot locomotion and kicking behaviors are implemented using the **NAOqi motion control framework**.
+
+### Walking Control
+
+The NAO walking module allows control of robot velocity using:
+
+```
+setWalkTargetVelocity(x, y, theta)
+```
+
+where
+
+- `x` controls forward velocity
+- `y` controls lateral motion
+- `theta` controls rotation
+
+The robot approaches the ball using proportional control:
+
+$$
+\theta = k_p \cdot x_{ball}
+$$
+
+where $x_{ball}$ is the horizontal offset of the ball in the image.
+
+### Head Motion Control
+
+The robot's head joints are controlled to perform visual scanning using:
+
+```
+setAngles("HeadYaw", angle, speed)
+```
+
+This allows the robot to actively search for the ball when it is lost.
+
+### Kicking Motion
+
+The kicking behavior is implemented using predefined **joint trajectories** for the hip, knee, and ankle joints.
+
+The kicking sequence includes:
+
+1. shift body weight to support leg
+2. lift kicking leg
+3. swing forward to strike the ball
+4. return to balanced stance
+
+Trajectory timing is tuned to maintain robot stability during the motion.
+
+---
+
+## Technical Stack
+
+**Hardware Platform**
+
+- NAO humanoid robot
+- onboard RGB camera
+- inertial measurement unit (IMU)
+- joint encoders
+
+**Software Framework**
+
+- NAOqi robot control framework
+- Python / C++ APIs
+
+**Libraries**
+
+- OpenCV for computer vision
+
+**Core Techniques**
+
+- HSV color segmentation
+- contour detection
+- geometric distance estimation
+- finite state machine behavior control
+- proportional heading control
+- humanoid locomotion control
 
 ---
 
 ## Outcome
 
-The system successfully demonstrated an autonomous robotic soccer pipeline including:
+The system successfully enabled the NAO robot to autonomously:
 
-- real-time ball detection
-- motion planning toward the ball
-- automated kicking actions
+- detect the soccer ball in real time
+- actively search for the ball when it is lost
+- navigate toward the ball
+- perform a stable kicking motion
 
-This project was my **first experience combining perception, control, and decision-making in an embodied system**, which later influenced my interest in **autonomous systems and intelligent perception**.
+This project provided hands-on experience with **real-world embodied AI systems**, combining perception algorithms, robot control, and behavior design in a physical robotic platform. It also established my early interest in autonomous systems and intelligent perception, which later led to my research in autonomous driving perception and collaborative multi-agent systems.

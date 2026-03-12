@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Jetson-Based Autonomous Driving System
-description: Embedded autonomous driving platform with perception and planning on NVIDIA Jetson
+description: Embedded autonomous driving platform integrating perception, planning, and control on NVIDIA Jetson
 img: assets/img/6.jpg
 importance: 1
 category: engineering
@@ -10,106 +10,229 @@ related_publications: false
 
 ## Overview
 
-This project implements a **miniature autonomous driving system** built on an **NVIDIA Jetson embedded AI platform**.  
-The system integrates **visual perception, object detection, traffic light recognition, and path planning**, enabling an autonomous vehicle to navigate in a structured environment.
+This project implements a **miniature autonomous driving system** deployed on an **NVIDIA Jetson embedded AI platform**. The goal of the project was to design a **complete perception–planning–control pipeline** capable of running in real time on an embedded GPU.
 
-The goal of this project was to design a **real-time perception and control pipeline** capable of running entirely on an embedded GPU platform.
+The vehicle is equipped with a forward-facing camera and executes autonomous driving behaviors including:
+
+- traffic light recognition
+- obstacle detection
+- lane following
+- crosswalk-aware speed control
+- rule-based path planning
+
+The project focuses on integrating **deep learning perception with classical control algorithms** under the computational constraints of an embedded system.
 
 ---
 
-## System Architecture
+## System Pipeline
 
-The system consists of four major modules:
+The system follows a typical autonomous driving architecture:
 
-1. **Traffic Light Recognition**
-2. **Obstacle Detection**
-3. **Path Planning**
-4. **Crosswalk-aware Speed Control**
+Perception → Environment Representation → Behavior Planning → Vehicle Control
 
-The overall autonomous driving setup is shown below.
+At each control cycle the system performs the following steps:
 
-<img src="/assets/img/6.jpg" alt="Autonomous Driving System" style="width:100%; border-radius:8px; margin-top:10px;">
+1. Capture camera image
+2. Run perception models to detect traffic lights and obstacles
+3. Extract lane geometry using computer vision
+4. Estimate vehicle deviation from lane center
+5. Generate steering and speed commands
+6. Send control signals to the vehicle controller
+
+This pipeline runs entirely on the **Jetson onboard computer**, enabling real-time autonomous operation.
+
+---
+
+## Hardware Platform
+
+The autonomous vehicle platform consists of:
+
+- **NVIDIA Jetson embedded GPU module** for perception inference
+- monocular RGB camera for environment sensing
+- motor driver and steering controller
+- onboard microcontroller for low-level actuator control
+
+The Jetson device performs all perception and planning computations, while the microcontroller executes the final motor commands.
 
 ---
 
 ## Perception Module
 
-The perception system runs on the **NVIDIA Jetson platform**, which provides GPU acceleration for deep learning inference.
-
-Two perception tasks were implemented:
+The perception module processes images from the onboard camera to detect key driving cues.
 
 ### Traffic Light Recognition
 
-A lightweight object detection model based on **YOLOv5-Nano** was trained to detect traffic lights in real time.  
-The model was optimized for embedded deployment using:
+Traffic lights are detected using a lightweight deep learning object detection model based on **YOLOv5‑Nano**.
 
-- Model pruning
-- TensorRT acceleration
-- Reduced input resolution for real-time inference
+Training pipeline:
 
-The system can recognize **red, yellow, and green lights**, enabling the vehicle to react accordingly.
+- custom dataset of traffic light images
+- data augmentation including brightness variation and scaling
+- training using PyTorch
+
+For embedded deployment, the model was optimized using:
+
+- **TensorRT inference acceleration**
+- model layer fusion
+- reduced input resolution
+
+The network outputs bounding boxes and class labels for:
+
+- red light
+- yellow light
+- green light
+
+The detected signal state is used to determine whether the vehicle should stop or continue driving.
+
+---
 
 ### Obstacle Detection
 
-For obstacle detection, the same **YOLO-based detection pipeline** was used to identify objects in front of the vehicle.  
-Detected obstacles are converted into spatial constraints used by the planning module.
+Obstacle detection uses the same YOLO detection framework to identify objects located in front of the vehicle.
+
+Detected objects are projected into the vehicle coordinate frame using camera geometry. If an obstacle appears within a predefined safety region, the planner reduces speed or stops the vehicle.
+
+This module enables reactive collision avoidance.
 
 ---
 
-## Path Planning
+## Lane Detection
 
-The vehicle navigation logic is implemented through a **lightweight rule-based planning algorithm**.
+Lane geometry is extracted using a classical computer vision pipeline.
 
-Key components include:
+The algorithm consists of the following steps:
 
-- Lane following based on **classical computer vision lane detection**
-- Direction decision at intersections
-- Dynamic path adjustment when obstacles are detected
+1. **Perspective Transformation**  
+   A homography transform converts the camera image into a bird's-eye-view representation.
 
-The planning module generates steering and velocity commands for the vehicle controller.
+2. **Edge Detection**  
+   Canny edge detection identifies lane boundaries.
 
----
+3. **Region of Interest Selection**  
+   Only the road area is processed to reduce noise.
 
-## Crosswalk Detection and Speed Control
+4. **Hough Transform Line Detection**  
+   The Hough transform extracts candidate lane lines.
 
-To improve driving safety, the system also detects **pedestrian crosswalks** using image-based pattern recognition.
+5. **Lane Model Fitting**  
+   Detected lines are fitted using a polynomial model to estimate the lane center.
 
-When a crosswalk is detected:
-
-- The vehicle **automatically reduces speed**
-- The controller ensures smooth deceleration
-- The system resumes normal speed after passing the crosswalk
-
-This module improves safety behavior in urban driving scenarios.
+The lateral deviation between the vehicle center and lane center is computed and used for steering control.
 
 ---
 
-## Experimental Results
+## Behavior Planning
 
-The system demonstrates the following capabilities:
+Driving decisions are implemented using a **rule-based behavior planner**.
 
-- Real-time **traffic light recognition**
-- Robust **obstacle detection**
-- Stable **lane following and navigation**
-- Automatic **speed reduction near crosswalks**
+The planner integrates information from perception modules and selects appropriate driving actions.
 
-All perception and control algorithms run directly on the **Jetson embedded platform**, enabling real-time autonomous driving behavior.
+Key decision rules include:
+
+**Traffic Light Rule**
+
+- Red light → vehicle stops
+- Green light → vehicle proceeds
+
+**Obstacle Rule**
+
+- obstacle detected in front region → reduce speed or stop
+
+**Lane Following Rule**
+
+- maintain vehicle alignment with the detected lane center
+
+**Crosswalk Rule**
+
+- when crosswalk pattern detected → reduce speed
+
+This rule-based system provides interpretable behavior suitable for small-scale autonomous platforms.
 
 ---
 
-## Technical Components
+## Vehicle Control
 
-This project integrates several technical domains:
+Vehicle motion is controlled using a feedback controller that converts perception outputs into steering and velocity commands.
 
-- **Embedded AI (NVIDIA Jetson)**
-- **Deep Learning Object Detection (YOLOv5-Nano)**
-- **Computer Vision for Lane Detection**
-- **Autonomous Navigation Algorithms**
-- **Real-time Embedded Systems**
+### Steering Control
+
+Steering is computed using a **proportional control law** based on lane deviation:
+
+$$
+\delta = k_p \cdot e
+$$
+
+where
+
+- $e$ is the lateral distance from lane center
+- $\delta$ is the steering command
+- $k_p$ is a control gain
+
+This controller continuously corrects the vehicle heading to stay centered in the lane.
+
+### Speed Control
+
+Vehicle speed is adjusted according to environment conditions:
+
+- normal cruising speed during lane following
+- reduced speed near crosswalks
+- full stop when traffic light is red
+
+Speed commands are transmitted from the Jetson system to the motor controller via serial communication.
 
 ---
 
-## Impact
+## Embedded Optimization
 
-This project provided hands-on experience with **autonomous driving perception and planning pipelines** on embedded hardware.  
-It strengthened my interest in **autonomous systems, real-time perception, and efficient AI deployment**, which later motivated my research in collaborative perception and autonomous driving.
+To ensure real-time performance on the Jetson platform, several optimizations were implemented:
+
+- TensorRT inference acceleration for YOLO
+- reduced neural network input resolution
+- asynchronous perception and control threads
+- GPU utilization monitoring and tuning
+
+These optimizations enabled stable real-time inference and control.
+
+---
+
+## Technical Stack
+
+**Hardware**
+
+- NVIDIA Jetson embedded GPU platform
+- monocular RGB camera
+- motor driver and steering actuator
+
+**Software**
+
+- Python
+- PyTorch
+- TensorRT
+
+**Computer Vision**
+
+- YOLOv5‑Nano object detection
+- Canny edge detection
+- Hough transform
+- perspective transformation
+
+**Autonomous Driving Algorithms**
+
+- lane detection and center estimation
+- rule-based behavior planning
+- proportional steering control
+
+---
+
+## Outcome
+
+The system successfully demonstrated a complete embedded autonomous driving pipeline capable of:
+
+- detecting traffic lights in real time
+- recognizing obstacles and avoiding collisions
+- performing stable lane following
+- slowing down at crosswalks
+
+All perception and planning modules run on the **Jetson embedded platform**, demonstrating the feasibility of integrating deep learning perception with classical control in a resource-constrained autonomous driving system.
+
+This project provided hands-on experience with **autonomous driving perception, embedded AI deployment, and real-time robotics systems**, which later influenced my research interests in collaborative perception and efficient multi-agent autonomous systems.
