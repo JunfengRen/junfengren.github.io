@@ -59,6 +59,28 @@ ninja.data = [{
             window.location.href = "/blog/2026/Math/";
           
         },
+      },{id: "post-building-my-phd-interview-knowledge-base-for-computer-vision",
+        
+          title: "Building My PhD Interview Knowledge Base for Computer Vision",
+        
+        description: "A structured roadmap of the theoretical foundations required for PhD interviews in computer vision and autonomous driving.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/First/";
+          
+        },
+      },{id: "post-mathematical-foundations-for-machine-learning-and-computer-vision",
+        
+          title: "Mathematical Foundations for Machine Learning and Computer Vision",
+        
+        description: "Detailed study notes on linear algebra, probability, and optimization for machine learning and computer vision.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/Math/";
+          
+        },
       },{id: "post-building-my-phd-knowledge-base-for-computer-vision",
         
           title: "Building My PhD Knowledge Base for Computer Vision",
