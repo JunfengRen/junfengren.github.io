@@ -116,6 +116,11 @@ ninja.data = [{
           description: "",
           section: "Projects",handler: () => {
               window.location.href = "/projects/RD/";
+            },},{id: "projects-scheduling-optimization-design-of-iot-embedded-system-based-on-improved-rms-algorithm",
+          title: 'Scheduling Optimization Design of IoT Embedded System Based on Improved RMS Algorithm',
+          description: "Research project on task scheduling optimization for IoT embedded systems using an improved RMS algorithm",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/RMS/";
             },},{id: "teachings-data-science-fundamentals",
           title: 'Data Science Fundamentals',
           description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
