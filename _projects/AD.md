@@ -10,12 +10,14 @@ related_publications: false
 
 ## Overview
 
-This project implements a **miniature autonomous driving system** deployed on an **NVIDIA Jetson embedded AI platform**. The goal of the project was to design a **complete perception–planning–control pipeline** capable of running in real time on an embedded GPU.
+This project was completed in **2023 during my undergraduate studies** and implements a **miniature autonomous driving system** deployed on an **NVIDIA Jetson embedded AI platform**. The goal of the project was to design a **complete perception–planning–control pipeline** capable of running in real time on an embedded GPU while integrating **multi‑modal sensing**.
+
+The vehicle platform integrates a **forward-facing RGB camera and a radar sensor**, enabling the system to combine visual perception with distance sensing for more robust environment understanding.
 
 The vehicle is equipped with a forward-facing camera and executes autonomous driving behaviors including:
 
 - traffic light recognition
-- obstacle detection
+- obstacle detection using **camera–radar fusion**
 - lane following
 - crosswalk-aware speed control
 - rule-based path planning
@@ -48,7 +50,8 @@ This pipeline runs entirely on the **Jetson onboard computer**, enabling real-ti
 The autonomous vehicle platform consists of:
 
 - **NVIDIA Jetson embedded GPU module** for perception inference
-- monocular RGB camera for environment sensing
+- monocular RGB camera for visual perception
+- **millimeter-wave radar sensor for distance measurement and obstacle detection**
 - motor driver and steering controller
 - onboard microcontroller for low-level actuator control
 
@@ -93,6 +96,61 @@ Obstacle detection uses the same YOLO detection framework to identify objects lo
 Detected objects are projected into the vehicle coordinate frame using camera geometry. If an obstacle appears within a predefined safety region, the planner reduces speed or stops the vehicle.
 
 This module enables reactive collision avoidance.
+
+---
+
+### Radar-Based Distance Sensing
+
+To improve robustness under lighting variations and to provide reliable distance estimation, a **millimeter‑wave radar sensor** was integrated into the perception system.
+
+Radar measurements provide direct range information to nearby objects. These measurements are fused with camera-based detections by associating radar returns with detected bounding boxes in the image.
+
+The fusion process includes:
+
+- projecting radar detections into the camera coordinate frame
+- associating radar points with detected objects
+- using radar range measurements to refine obstacle distance estimation
+
+This **camera–radar fusion** improves obstacle detection reliability and enables safer braking behavior compared with purely vision-based perception.
+
+---
+
+## Sensor Fusion
+
+To combine the complementary strengths of vision and radar sensing, a lightweight **camera–radar fusion module** was implemented.
+
+The camera provides rich semantic information (object category and image location), while radar provides reliable **distance measurements** that are robust to lighting conditions.
+
+The fusion process follows three main steps:
+
+**1. Coordinate Alignment**
+
+Radar detections are first transformed into the camera coordinate frame using the calibrated extrinsic parameters between the radar and camera sensors.
+
+**2. Association Between Radar Returns and Visual Detections**
+
+For each object detected by the YOLO network, nearby radar points are associated with the bounding box region in the image. This establishes a correspondence between the visual detection and radar measurement.
+
+**3. Position Estimation**
+
+Given the radar range measurement \(r\) and the horizontal angle \(\theta\) relative to the vehicle, the object position in the vehicle coordinate frame is estimated as:
+
+$$
+X = r \cos(\theta)
+$$
+
+$$
+Y = r \sin(\theta)
+$$
+
+where
+
+- \(X\) represents the forward distance
+- \(Y\) represents the lateral offset from the vehicle center
+
+These fused position estimates are then used by the planning module to determine whether an obstacle lies within the vehicle's safety region.
+
+By combining camera detection with radar distance sensing, the system achieves more reliable obstacle localization than purely vision-based perception, especially in challenging lighting conditions.
 
 ---
 
@@ -235,4 +293,4 @@ The system successfully demonstrated a complete embedded autonomous driving pipe
 
 All perception and planning modules run on the **Jetson embedded platform**, demonstrating the feasibility of integrating deep learning perception with classical control in a resource-constrained autonomous driving system.
 
-This project provided hands-on experience with **autonomous driving perception, embedded AI deployment, and real-time robotics systems**, which later influenced my research interests in collaborative perception and efficient multi-agent autonomous systems.
+This project was completed during my **undergraduate studies in 2023** and represents my first full implementation of an embedded autonomous driving pipeline integrating **multi-modal perception, behavior planning, and vehicle control**. Working on this system sparked my strong interest in **autonomous driving and intelligent perception systems**, which later motivated my decision to pursue graduate research in **autonomous driving perception and collaborative multi-agent perception systems**.

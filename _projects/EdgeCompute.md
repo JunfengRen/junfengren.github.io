@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Embedded Face Recognition Access Control System
-description: Lightweight edge AI system for real-time face recognition on STM32 microcontrollers
+description: Edge AI access control system with lightweight face recognition on STM32 microcontrollers
 img: assets/img/4.jpg
 importance: 1
 category: engineering
@@ -10,99 +10,168 @@ related_publications: false
 
 ## Overview
 
-This project focuses on building a **lightweight edge AI access control system** based on an **STM32 embedded development board**.  
-The system performs **real-time face recognition directly on-device**, enabling secure and low-latency identity verification without relying on heavy cloud computation.
+This project was completed in **2023 as my undergraduate thesis project** and focuses on designing a **resource‑efficient edge AI system for face recognition–based access control**. The goal was to deploy a **complete perception–decision–control pipeline directly on embedded hardware**, enabling real‑time identity verification without relying on heavy cloud computation.
 
-The project integrates **embedded AI inference, IoT connectivity, and mobile remote control**, forming a complete edge computing solution for intelligent access management.
+Unlike conventional access control systems that depend on server-side inference, this project demonstrates how **deep learning models can be optimized and deployed directly on microcontrollers**. The system integrates **embedded AI inference, IoT communication, and mobile device management**, forming a full edge computing architecture for intelligent access control.
+
+The project combines techniques from **embedded systems, computer vision, TinyML, and IoT networking**, and was implemented on an **STM32-based embedded platform** with wireless connectivity and mobile control.
 
 ---
 
 ## System Architecture
 
-The system consists of three major components:
+The system follows a typical **edge AI architecture**, consisting of three main components:
 
-1. **Edge AI Face Recognition Module**
-2. **IoT Communication Module**
-3. **Android Remote Control Application**
+1. **Edge AI Face Recognition Module (STM32)**
+2. **Wireless Communication Module (ESP8266)**
+3. **Android Remote Management Application**
 
-The overall system architecture is illustrated below.
+The architecture enables local perception and decision making at the edge while allowing remote monitoring through cloud services.
 
 <img src="/assets/img/4.jpg" alt="System Architecture" style="width:100%; border-radius:8px; margin-top:10px;">
+
+At runtime, the system operates as follows:
+
+1. A camera captures a face image at the access terminal.
+2. The STM32 microcontroller performs **on-device face recognition inference**.
+3. The identity verification result determines whether the door lock is triggered.
+4. Recognition events and device status are transmitted to the cloud through Wi-Fi.
+5. The Android application allows remote monitoring and user management.
+
+This pipeline demonstrates a complete **edge perception–decision–communication loop** implemented on resource-constrained hardware.
 
 ---
 
 ## Edge AI Face Recognition
 
-To enable face recognition on resource-constrained hardware, a **lightweight CNN-based face embedding model derived from MobileFaceNet** was implemented and optimized for embedded inference.
+A major challenge of this project was enabling deep learning–based face recognition on a **microcontroller with extremely limited compute and memory resources**.
 
-Key optimizations include:
+To address this constraint, a **lightweight face embedding network derived from MobileFaceNet** was designed and optimized for embedded deployment.
 
-- **Model pruning** to remove redundant parameters  
-- **INT8 quantization** to reduce memory footprint  
-- **TensorFlow Lite Micro deployment** for embedded inference  
-- **Optimized fixed-point operations** for STM32 processors  
+### Model Design
 
-These optimizations allow the model to run efficiently on the **STM32 microcontroller with limited memory and compute resources**, enabling real-time face recognition directly at the edge.
+The face recognition pipeline consists of three stages:
+
+1. **Face Detection** – locate the face region in the captured image.
+2. **Feature Embedding Extraction** – compute a compact identity representation.
+3. **Similarity Matching** – compare embeddings against registered users.
+
+Given a face image $x$, the neural network produces an embedding vector:
+
+$$
+\mathbf{f}(x) \in \mathbb{R}^d
+$$
+
+Identity verification is performed using cosine similarity between embeddings:
+
+$$
+\text{sim}(x_i, x_j) = \frac{\mathbf{f}(x_i)^T \mathbf{f}(x_j)}{\|\mathbf{f}(x_i)\| \, \|\mathbf{f}(x_j)\|}
+$$
+
+If the similarity exceeds a predefined threshold, the identity is considered a match.
+
+### Embedded Optimization
+
+To make the model deployable on STM32 hardware, several **TinyML optimization techniques** were applied:
+
+• **Model pruning** to remove redundant weights
+
+• **INT8 quantization** to reduce model size and memory usage
+
+• **TensorFlow Lite Micro deployment** for microcontroller inference
+
+• **Fixed‑point arithmetic optimization** to accelerate computation
+
+These optimizations reduced both **memory footprint and inference latency**, enabling real-time face recognition on a microcontroller platform.
 
 ---
 
 ## IoT Communication
 
-The system integrates an **ESP8266 Wi-Fi module** to enable communication with the cloud.
+To enable remote monitoring and control, the system integrates an **ESP8266 Wi‑Fi module** that connects the embedded device to the cloud.
 
-Functions include:
+Communication functions include:
 
-- Uploading recognition results and device status  
-- Remote device monitoring  
-- Cloud-based message exchange  
+• uploading recognition events and system logs
 
-The communication is implemented through **Baidu Cloud IoT platform**, allowing secure and scalable device connectivity.
+• synchronizing user identity data
 
----
+• remote device status monitoring
 
-## Android Remote Control Application
+The communication protocol is implemented through the **Baidu Cloud IoT platform**, which provides device authentication, message routing, and scalable cloud connectivity.
 
-An **Android application** was developed to remotely manage the access control system.
-
-The app provides:
-
-- Real-time monitoring of device status  
-- Remote door control  
-- User management and identity registration  
-- Cloud-based communication with the embedded device
-
-The Android client communicates with the edge device through the **Baidu Cloud IoT service**, enabling remote access management from mobile devices.
+The embedded device communicates with the cloud using lightweight **MQTT-based messaging**, allowing efficient data transmission under limited network bandwidth.
 
 ---
 
-## Experimental Results
+## Android Remote Management Application
 
-The system successfully demonstrates:
+An **Android mobile application** was developed to remotely manage the access control system.
 
-- **Real-time face recognition on STM32 edge hardware**
-- **Stable cloud communication via ESP8266**
-- **Remote device control through Android application**
+The mobile client provides the following functionalities:
 
-Example system results are shown below.
+• remote door control
 
-<img src="/assets/img/5.jpg" alt="System Results" style="width:100%; border-radius:8px; margin-top:10px;">
+• device status monitoring
+
+• user identity registration
+
+• cloud-based event logging
+
+The Android application communicates with the embedded system through the **Baidu IoT cloud service**, forming a full **edge–cloud–mobile interaction loop**.
+
+Example system interface and application results are shown below.
+
+<img src="/assets/img/5.jpg" alt="Android Application Interface and System Results" style="width:100%; border-radius:8px; margin-top:10px;">
 
 ---
 
-## Technical Components
+## Key Technical Challenges
+
+Developing an AI system on microcontroller hardware introduces several engineering challenges.
+
+### Real-Time Inference on Microcontrollers
+
+STM32 processors have extremely limited compute capability and memory. Running neural networks therefore required **aggressive model compression and efficient inference frameworks**.
+
+### Memory Constraints
+
+Microcontrollers typically provide only a few hundred kilobytes of RAM. Model architecture and tensor memory allocation had to be carefully optimized to fit within these constraints.
+
+### Edge–Cloud Communication
+
+Reliable communication between embedded devices and cloud services required lightweight protocols and robust device authentication.
+
+### System Integration
+
+The project required integrating **computer vision, embedded firmware, wireless networking, and mobile development**, forming a complete intelligent system rather than an isolated algorithm.
+
+---
+
+## Technical Stack
 
 This project integrates multiple technical domains:
 
-- **Embedded Systems (STM32)**
-- **Edge AI / TinyML**
-- **Lightweight CNN Models**
-- **IoT Communication (ESP8266)**
-- **Mobile Application Development (Android)**
+• **Embedded Systems:** STM32 microcontrollers
+
+• **Edge AI / TinyML:** TensorFlow Lite Micro
+
+• **Computer Vision:** face recognition and feature embedding
+
+• **Model Compression:** pruning and quantization
+
+• **IoT Communication:** ESP8266 Wi‑Fi + MQTT
+
+• **Cloud Platform:** Baidu Cloud IoT
+
+• **Mobile Development:** Android application
 
 ---
 
 ## Impact
 
-This project demonstrates how **AI inference can be deployed directly on resource-constrained embedded devices**, enabling intelligent edge computing systems with low latency and strong privacy protection.
+This project demonstrates how **deep learning perception models can be deployed on resource‑constrained edge devices**, enabling intelligent systems that operate with **low latency, improved privacy, and reduced cloud dependency**.
 
-The experience gained from this project strengthened my interest in **efficient AI systems and real-world intelligent perception**, which later influenced my research in efficient perception frameworks and collaborative systems.
+Working on this project sparked my interest in **efficient AI systems and real‑world perception deployment**, which later influenced my research direction toward **efficient perception architectures and collaborative multi‑agent systems in autonomous driving**.
+
+---
