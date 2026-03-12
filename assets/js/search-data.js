@@ -93,7 +93,7 @@ ninja.data = [{
               window.location.href = "/projects/AD/";
             },},{id: "projects-embedded-face-recognition-access-control-system",
           title: 'Embedded Face Recognition Access Control System',
-          description: "Lightweight edge AI system for real-time face recognition on STM32 microcontrollers",
+          description: "Edge AI access control system with lightweight face recognition on STM32 microcontrollers",
           section: "Projects",handler: () => {
               window.location.href = "/projects/EdgeCompute/";
             },},{id: "projects-federated-learning-for-medical-image-segmentation-with-domain-generalization",
