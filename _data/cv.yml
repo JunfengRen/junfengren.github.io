@@ -131,40 +131,40 @@ cv:
 
       - name: "Federated Learning for Medical Image Segmentation with Domain Generalization"
         summary: >
-          Research project on privacy-preserving medical image segmentation under cross-institution
-          domain shift, combining federated learning, domain generalization, and cross-domain feature adaptation.
+          Master's course research project investigating privacy-preserving medical image segmentation
+          under cross-institution domain shift using federated learning and domain generalization.
         highlights:
-          - "Developed a federated learning framework for multi-center medical image segmentation without sharing raw patient data"
-          - "Introduced domain style transfer and feature alignment strategies to improve model robustness across heterogeneous medical datasets"
-          - "Implemented collaborative optimization across distributed clients and evaluated cross-domain generalization performance"
-          - "Studied the interaction between privacy-preserving training and domain shift mitigation for robust medical image analysis"
+          - "Implemented a federated learning framework using FedAvg for multi-institution medical image segmentation without sharing raw patient data"
+          - "Designed domain generalization strategies including style transfer augmentation and cross-client feature distribution alignment"
+          - "Built a U-Net–based segmentation pipeline and evaluated cross-domain generalization across heterogeneous medical datasets"
+          - "Studied the interaction between privacy-preserving distributed training and domain shift mitigation in medical imaging"
 
       - name: "Jetson-Based Autonomous Driving System"
         summary: >
-          Embedded autonomous driving project built on NVIDIA Jetson, integrating visual perception,
-          traffic light recognition, obstacle detection, path planning, and behavior control in real time.
+          Undergraduate project implementing a real-time autonomous driving pipeline on NVIDIA Jetson,
+          integrating multi-modal perception, behavior planning, and embedded control.
         highlights:
-          - "Trained and deployed lightweight object detection models (YOLO-based) for traffic light recognition and obstacle perception on Jetson hardware"
-          - "Implemented lane following, rule-based path planning, and crosswalk-aware speed control for autonomous navigation"
-          - "Optimized perception and control modules for real-time inference on embedded GPU platforms"
-          - "Integrated perception, planning, and control into a complete autonomous driving pipeline for structured road environments"
+          - "Developed a perception pipeline combining camera vision and radar sensing for traffic light recognition and obstacle detection"
+          - "Trained and deployed lightweight YOLO-based object detection models optimized with TensorRT for embedded GPU inference"
+          - "Implemented lane detection using perspective transformation, Canny edge detection, and Hough transform"
+          - "Designed a rule-based behavior planner and proportional steering controller for lane following and crosswalk-aware speed regulation"
 
-      - name: "NAO Robot Soccer System"
+      - name: "NAO Robot Autonomous Ball Search and Kick System"
         summary: >
-          Embodied AI project based on the NAO humanoid robot platform, integrating computer vision,
-          motion control, and behavior planning for autonomous robotic soccer.
+          Embodied AI robotics project implementing autonomous ball detection, navigation,
+          and kicking behaviors on the NAO humanoid robot platform.
         highlights:
-          - "Developed real-time visual perception modules for soccer ball detection, localization, and tracking using onboard camera inputs"
-          - "Implemented robot motion control for walking, turning, target alignment, and kicking using NAO control APIs"
-          - "Designed behavior logic for autonomous soccer play, including target search, approach, positioning, and kick execution"
-          - "Built an embodied perception-action pipeline combining sensing, decision-making, and control in a robotic system"
+          - "Built a real-time vision pipeline using HSV color segmentation and contour detection for soccer ball localization"
+          - "Estimated ball distance using a pinhole camera model and visual geometry"
+          - "Implemented robot locomotion and kicking behaviors through NAOqi motion control APIs"
+          - "Designed a finite-state behavior controller for autonomous search, approach, alignment, and kick execution"
 
       - name: "Embedded Face Recognition Access Control System"
         summary: >
-          Edge AI access control system based on STM32 microcontrollers, combining lightweight face recognition,
-          IoT communication, and Android-based remote control.
+          Undergraduate thesis project implementing an edge AI access control system
+          with lightweight face recognition on STM32 microcontrollers.
         highlights:
-          - "Designed and deployed a lightweight face recognition pipeline on STM32 embedded hardware using a compressed CNN-based model for resource-constrained inference"
-          - "Applied model lightweighting techniques such as pruning, quantization, and embedded deployment optimization for real-time on-device recognition"
-          - "Integrated ESP8266 and Baidu Cloud IoT platform for remote communication, device monitoring, and access management"
-          - "Developed an Android application for remote door control, user interaction, and cloud-connected system management"
+          - "Designed a lightweight face recognition pipeline based on MobileFaceNet embeddings with cosine similarity matching"
+          - "Applied TinyML optimization techniques including model pruning, INT8 quantization, and TensorFlow Lite Micro deployment"
+          - "Integrated ESP8266 Wi-Fi module and Baidu Cloud IoT platform for MQTT-based remote communication"
+          - "Developed an Android application for remote device monitoring, user registration, and access control management"
